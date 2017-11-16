@@ -12,6 +12,7 @@ var LEFT = false;
 var RIGHT = false;
 var UP = false;
 var DOWN = false;
+var SPACE = false;
 
 ////// Arrow keys //////
 
@@ -36,6 +37,7 @@ document.onkeydown = function(e) {
 	if(e.keyCode == 39) RIGHT = true;
 	if(e.keyCode == 38) UP = true;
 	if(e.keyCode == 40) DOWN = true;
+	if(e.keyCode == 32) SPACE = true;
 }
 
 document.onkeyup = function(e) {
@@ -43,6 +45,7 @@ document.onkeyup = function(e) {
 	if(e.keyCode == 39) RIGHT = false;
 	if(e.keyCode == 38) UP = false;
 	if(e.keyCode == 40) DOWN = false;
+	if(e.keyCode == 32) SPACE = false;
 }
 
 ////// other functions //////
@@ -64,7 +67,16 @@ function ship(x,y) {
 	ctx.lineTo(x-15,y+50);
 	ctx.fill();
 }
-
+var ObjectBoundaries = function(Coordinate, Dimension){
+    var leftBound = Coordinate.getX();
+    var rightBound = (Coordinate.getX() + Dimension.getWidth());
+    var upperBound = Coordinate.getY();
+    var lowerBound = (Coordinate.getY() + Dimension.getHeight());
+    this.getLeftBound = function(){ return leftBound; };
+    this.getRightBound = function(){ return rightBound; };
+    this.getUpperBound = function(){ return upperBound; };
+    this.getLowerBound = function(){ return lowerBound; };
+};
 // update
 
 setInterval (update, 10);
@@ -74,3 +86,4 @@ function update() {
 	ship();
 	move();
 }
+ctx.strokeRect(0, 0, theCanvas.width, theCanvas.height);
