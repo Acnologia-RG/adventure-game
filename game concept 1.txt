@@ -3,4 +3,43 @@ title: the choices of life
 genre: adventure game, visual noval
 
 story: survive for a week by making life choices. but watchout as every choice will have a butterfly effect
+start screen
 
+*day 1* 
+7:00 - alarm rings		8:00 - alarm rings again *your late*
+1.wake up					1.wakeup
+2.snoose
+
+*room 7:00 or 8:00
+1.get dressed			*dressed*
+2.go to the bathroom
+3.go to the living room
+4.**go back to bed
+
+*bathroom time +2min
+1.take a bath/shower	*clean*
+2.brush your teeth		*nice breath*
+3.go to your bedroom
+4.go to the living room
+
+*living room time +2min
+1.eat			*energy
+2.check the weather	*know the weather
+3.go to work (with umbrella)
+4.go to outside (with umbrella)
+
+*day 1 go to work on time
+1.work
+2.take a break
+3.start fafing around with your colleague's
+
+*day 2
+1.
+2.
+3.
+
+
+*day 3
+1.
+2.
+3.
