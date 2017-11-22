@@ -1,10 +1,7 @@
 body {
 	background-color: purple;
 	font-family: arial;
-
-}
-main {
-	
+	font-size: 18px;
 }
 footer {
 	position: fixed;
@@ -14,6 +11,17 @@ footer {
 	height: 30%;
 	background-color: black;
 	color: white;
+}
+h1 {
+	margin: 5px 0px; 
+}
+#story {
+	font-size: 26px;
+	padding-right: 75px;
+}
+#story p {
+	padding-top: 10px;
+	margin: 0px;
 }
 footer ul {
 	margin: 0px 0px 0px 25px;
@@ -29,7 +37,12 @@ footer ul li {
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
-#grid {
+#main-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "main story";
+}
+#bottom-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas: "options status"

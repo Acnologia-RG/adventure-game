@@ -2,44 +2,70 @@ title: the choices of life
 
 genre: adventure game, visual noval
 
-story: survive for a week by making life choices. but watchout as every choice will have a butterfly effect
+story: survive for a week by making life choices. but watchout as every choice will have a effect on things that happen later on in the story
+
 start screen
 
-*day 1* 
-7:00 - alarm rings		8:00 - alarm rings again *your late*
-1.wake up					1.wakeup
+*day 1-5* 
+7:00 - alarm rings						8:00 - alarm rings again *your late*
+1.wake up								1.wakeup
 2.snoose
 
 *room 7:00 or 8:00
-1.get dressed			*dressed*
+1.get dressed							*dressed*
 2.go to the bathroom
 3.go to the living room
-4.**go back to bed
+4.*7:00 only*go back to bed
 
 *bathroom time +2min
-1.take a bath/shower	*clean*
-2.brush your teeth		*nice breath*
+1.take a bath/shower					*clean*
+2.brush your teeth						*nice breath/clean teeth*
 3.go to your bedroom
 4.go to the living room
 
 *living room time +2min
-1.eat			*energy
-2.check the weather	*know the weather
+1.eat and drink						*energy*
+2.check the weather						*know the weather*
 3.go to work (with umbrella)
 4.go to outside (with umbrella)
 
-*day 1 go to work on time
-1.work
+*day 1 go to work on time *sun*
+1.work *its your first day so you try realy hard
 2.take a break
-3.start fafing around with your colleague's
+3.start fafing around with your colleague's 	*boss gets irritated +1/3
 
-*day 2
-1.
-2.
+*day 2 go to work on time *rain*
+1.work *you ask a colleague for help
+2.take a break
+3.troll your colleague's 				*boss gets irritated +1/3
+
+*day 3 go to work on time *rain*
+1.work *a colleague asks you for help
+2.take a break 						*new colleague male
+3.download games 						*boss gets irritated +1/3 at 3/3 your fired
+
+*day 4 go to work on time *sun* 
+1.work *
+2.take a break *new female colleague
 3.
 
+*day 5 go to work on time but get late *storm*
+1.work *if done 5 days you get promoted*
+2.take a break
+3.talk to the new female colleague *get a date if: clean, nice breath/clean teeth, energy and dry*
 
-*day 3
-1.
-2.
-3.
+*day 1-4 go to work late
+get a call from your boss that your fired
+1.take the call
+2.ignore your boss
+
+*day 6
+1.*go on a date with katie your female colleague	*relationship+
+2.play games
+3.waste your day on the internet
+
+*day 7
+1.*go on a other date with katie 				*relationship+ and a extra :P
+2.play games
+3.visit famalie
+4.waste your day on the internet

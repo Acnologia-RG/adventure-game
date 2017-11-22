@@ -1,4 +1,7 @@
 console.log("hallo");
+var pic = document.getElementById('pic');
+var status = document.getElementById('ul-status');
+var elements = status.getElementsByClass('li');
 
 //document.getElementById('pic').src = "bedroom.png";
 
@@ -10,3 +13,13 @@ par.removeChild(elements[0]);*/
 
 //document.getElementById("h3").innerHTML = "hallo";
 
+function start() {
+	pic.src = "img/clock7.png";
+
+	status.removeChild(elements[0]);
+}
+function start2() {
+	pic.src = "img/clock7.png";
+	status.removeChild(elements[0]);
+	status.innerHTML = "<li>hyped</li>";
+}
