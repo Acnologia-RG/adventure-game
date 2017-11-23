@@ -50,7 +50,7 @@ start screen
 3.
 
 *day 5 go to work on time but get late *storm*
-1.work *if done 5 days you get promoted*
+1.work 								*if done 5 days you get promoted*
 2.take a break
 3.talk to the new female colleague *get a date if: clean, nice breath/clean teeth, energy and dry*
 
@@ -65,7 +65,7 @@ get a call from your boss that your fired
 3.waste your day on the internet
 
 *day 7
-1.*go on a other date with katie 				*relationship+ and a extra :P
+1.*go on a other date with katie *if hyped		*relationship+ and a extra :P
 2.play games
 3.visit famalie
 4.waste your day on the internet
