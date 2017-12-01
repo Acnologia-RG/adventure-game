@@ -41,8 +41,8 @@ start screen
 
 *day 3 go to work on time *rain*
 1.work *a colleague asks you for help
-2.take a break 						*new colleague male
-3.download games 						*boss gets irritated +1/3 at 3/3 your fired
+2.take a break 						*new colleague female
+3.download/play games					*boss gets irritated +1/3 at 3/3 your fired
 
 *day 4 go to work on time *sun* 
 1.work *
@@ -52,7 +52,7 @@ start screen
 *day 5 go to work on time but get late *storm*
 1.work 								*if done 5 days you get promoted*
 2.take a break
-3.talk to the new female colleague *get a date if: clean, nice breath/clean teeth, energy and dry*
+3.talk to the new female colleague 		*get a date if: clean, nice breath/clean teeth, energy and dry*
 
 *day 1-4 go to work late
 get a call from your boss that your fired
