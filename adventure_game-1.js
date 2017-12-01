@@ -29,67 +29,57 @@ function removeStatus(number) {
 	status.removeChild(status.childNodes[number]);
 }
 function removeOptions(number) {
-	options.removeChild(options.childNodes[number]);
+	options.innerHTML= "";
 }
 function functionstart() {
 	pic.src = "img/clock7.png";
 	removeStatus(0);
 	removeStatus(0);
-	for (var i = 0; i < 5; i++) {
-		removeOptions(0)
-	}
-	late = false
-	createNewLiOptions("get up", "functionGetUp");
-	createNewLiOptions("snooze", "functionSnooze");
-
+	removeOptions(0);
+	late = false;
+	createNewLiOptions("get up","functionGetUp");
+	createNewLiOptions("snooze","functionSnooze");
 }
 function functionhyped() {
-	pic.src = "img/clock7.png";
-	removeStatus(0);
-	removeStatus(0);
-	for (var i = 0; i < 5; i++) {
-		removeOptions(0)
-	}
-	late = false
+	functionstart();
 	hyped = true;
-	createNewLiOptions("get up", "functionGetUp");
-	createNewLiOptions("snooze", "functionSnooze");
 }
 function functionSnooze() {
 	pic.src = "img/clock8.png";
 	late_for_work = true;
-	for (var i = 0; i < 5; i++) {
-		removeOptions(0)
-	}
+	removeOptions(0);
 	createNewLiOptions("get up","functionGetUp");
-	createNewLiOptions("see your already late and continue sleeping","functionGameOver")
+	createNewLiOptions("see your already late and continue sleeping","functionGameOver");
 }
 function functionGetUp() {
 	pic.src = "img/bedroom.png";
-	for (var i = 0; i < 5; i++) {
-		removeOptions(0)
-	}
-	createNewLiOptions("get dressed","functiondressed")
-	createNewLiOptions("go to the bathroom","functionGoToTheBathroom")
-	createNewLiOptions("go to the living room","functionGoToTheLivingRoom")
-	createNewLiOptions("go back to bed","functiongoBackToBed")
+	removeOptions(0);
+	createNewLiOptions("get dressed","functiondressed");
+	createNewLiOptions("go to the bathroom","functionGoToTheBathroom");
+	createNewLiOptions("go to the living room","functionGoToTheLivingRoom");
+	createNewLiOptions("go back to bed","functiongoBackToBed");
 }
 function functionGoToTheBathroom() {
 	pic.src = "img/bathroom.png";
-	createNewLiOptions("take a shower","functionTakeAShower")
-	createNewLiOptions("brush your teeth","functionBrushYourTeeth")
+	removeOptions(0);
+	createNewLiOptions("take a shower","functionTakeAShower");
+	createNewLiOptions("brush your teeth","functionBrushYourTeeth");
+	createNewLiOptions("go back to bed","functiongoBackToBed");
 }
 function functionGoToTheLivingRoom() {
 	pic.src = "img/livingroom.png";
-	pic.setAttribute("style","width:62%;")
-	createNewLiOptions("eat breakfast","functionEatBreakfast")
-	createNewLiOptions("check the weather","functionCheckTheWeather")
+	removeOptions(0);
+	pic.setAttribute("style","width:62%;");
+	createNewLiOptions("eat breakfast","functionEatBreakfast");
+	createNewLiOptions("check the weather","functionCheckTheWeather");
+	createNewLiOptions("go back to bed","functiongoBackToBed");
 }
 
 
 
 function functionGameOver() {
 	pic.src = "img/gameover.png";
+	removeOptions(0);
 	story.innerHTML = "GAME OVER";
 }
 function createNewLiOptions(text, onclick) {
@@ -99,7 +89,7 @@ function createNewLiOptions(text, onclick) {
     var textnode = document.createTextNode(text);
     nodeLi.appendChild(nodebutton);
     nodebutton.appendChild(textnode);
-    document.getElementById("ul-options").appendChild(nodeLi); 
+    document.getElementById("ul-options").appendChild(nodeLi);
 }
 function createNewLiStatus(text) {
     var node = document.createElement("LI");
@@ -111,9 +101,5 @@ function createNewLiStatus(text) {
 //document.getElementById('pic').src = "bedroom.png";
 
 //document.getElementById('pic').setAttribute("style", "width:50%; height:50%;");
-
-/*var par = document.getElementById('ul-options');
-var elements = par.getElementsByTagName('li');
-par.removeChild(elements[0]);*/
 
 //document.getElementById("h3").innerHTML = "hallo";
