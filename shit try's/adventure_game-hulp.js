@@ -5,6 +5,7 @@ const story = document.getElementById('p-story');
 const options = document.getElementById('ul-options');
 const status = document.getElementById('ul-status');
 
+//boolean's
 var tired = true;
 var dirty = true;
 var late = true;
@@ -16,10 +17,13 @@ var nice_breath = false;
 var clean_teeth = false;
 var late_for_work = false;
 var know_the_weather = false;
+var worked = false;
 
+//numbers
 var relationship = 0;
 var irritated_boss = 0;
 var promoted = 0;
+var troll = 0;
 var time = 420;
 
 function functiondressed() {
@@ -54,4 +58,34 @@ function functionCheckTheWeather() {
 }
 function functiongoBackToBed() {
 	functionSnooze();
+}
+function functionWork() {
+	energy=false;
+}
+function functionTakeABreak() {
+	energy=true;
+}
+function functionFuckAroundAtWork() {
+	irritated_boss++;
+	functionGoToWork();
+}
+
+
+
+function functionSleep() {
+	energy = false;
+	dressed = false;
+	clean = false;
+	nice_breath = false;
+	clean_teeth = false;
+	late_for_work = false;
+	know_the_weather = false;
+	worked = false;
+	if (irritated_boss=1) {
+		troll++
+	} else if (irritated_boss=2) {
+		troll++
+	} else if (irritated_boss=3) {
+		troll++		
+	}
 }
