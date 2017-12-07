@@ -28,7 +28,7 @@ var promoted = 0;
 var troll = 0;
 var time = 420;
 
-//functions for at home
+//start game functions
 function functionstart() {
 	pic.src = "img/clock7.png";
 	removeStatus(0);
@@ -44,6 +44,8 @@ function functionhyped() {
 	hyped = true;
 	story.innerHTML = "you just woke-up from your sleep and you feel really excited";
 }
+
+//functions for at home in the morning
 function functionSnooze() {
 	pic.src = "img/clock8.png";
 	late_for_work = true;
@@ -89,8 +91,6 @@ function functionGoToTheLivingRoom() {
 	createNewLiOptions("go to work","functionGoToWork");
 }
 
-
-
 //functions for at work
 function functionGoToWork() {
 	pic.src = "img/office.png";
@@ -113,7 +113,7 @@ function functionGoToWork() {
 		createNewLiOptions("take a break","functionTakeABreak");
 		}
 		if (worked==true) {
-			createNewLiOptions("","")
+			createNewLiOptions("go home","functionGoHome");
 		}
 		if (irritated_boss==0  && troll==0) {
 		createNewLiOptions("start faffing around with your colleague's","functionFuckAroundAtWork");
@@ -129,6 +129,17 @@ function functionGoToWork() {
 		got_work=false;
 	}
 }
+//functions for after work at home
+function functionGoHome() {
+	pic.src = "img/home.png";
+	removeOptions();
+	late=true;
+	createNewLiOptions("make dinner","functionMakeDinner");
+	createNewLiOptions("play some games","functionPlayGame");
+	createNewLiOptions("watch some TV","functionWatchTV");
+	createNewLiOptions("go to bed","functionSleep");
+}
+
 
 //once per day things/activities
 function functionGetANewJob() {

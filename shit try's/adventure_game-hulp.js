@@ -61,15 +61,25 @@ function functiongoBackToBed() {
 }
 function functionWork() {
 	energy=false;
+	worked=true;
+	promoted++;
+	functionGoToWork();
 }
 function functionTakeABreak() {
 	energy=true;
+	functionGoToWork();
 }
 function functionFuckAroundAtWork() {
 	irritated_boss++;
 	functionGoToWork();
 }
-
+function functionGoHome() {
+	late=true;
+	createNewLiOptions("make dinner","functionMakeDinner");
+	createNewLiOptions("play some games","functionPlayGame");
+	createNewLiOptions("watch some TV","functionWatchTV");
+	createNewLiOptions("go to bed","functionSleep");
+}
 
 
 function functionSleep() {
@@ -81,11 +91,11 @@ function functionSleep() {
 	late_for_work = false;
 	know_the_weather = false;
 	worked = false;
-	if (irritated_boss=1) {
+	if (irritated_boss==1 && troll==0) {
 		troll++
-	} else if (irritated_boss=2) {
+	} else if (irritated_boss==2 && troll==1) {
 		troll++
-	} else if (irritated_boss=3) {
+	} else if (irritated_boss==3 && troll==2) {
 		troll++		
 	}
 }
