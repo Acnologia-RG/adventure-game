@@ -1,14 +1,18 @@
 console.log("hallo");
+
+//const list//
 const title = document.getElementById('title');
 const pic = document.getElementById('pic');
 const story = document.getElementById('p-story');
 const options = document.getElementById('ul-options');
 const status = document.getElementById('ul-status');
 
-//boolean's
+//boolean's//
 var tired = true;
 var dirty = true;
 var late = true;
+var single = true;
+var got_work = true;
 var hyped = false;
 var energy = false;
 var dressed = false;
@@ -18,13 +22,21 @@ var clean_teeth = false;
 var late_for_work = false;
 var know_the_weather = false;
 var worked = false;
+var got_keys = false;
+var eaten = true;
 
-//numbers
+//room vars//
+var bedroom = false;
+var bathroom = false;
+var livingroom = false;
+
+//numbers//
 var relationship = 0;
 var irritated_boss = 0;
 var promoted = 0;
 var troll = 0;
-var time = 420;
+var job = 1;
+var day = 1;
 
 function functiondressed() {
 	dressed = true;
@@ -74,13 +86,32 @@ function functionFuckAroundAtWork() {
 	functionGoToWork();
 }
 function functionGoHome() {
+	console.log("day "+day+" back at home");
+	if (got_keys==false) {
+		functionGameOver();
+	}
+	else if (got_keys==true) {
+	title.innerHTML="your at home";
+	pic.src = "img/home.png";
+	pic.setAttribute("style","width:95%;");
+	removeOptions();
 	late=true;
 	createNewLiOptions("make dinner","functionMakeDinner");
 	createNewLiOptions("play some games","functionPlayGame");
 	createNewLiOptions("watch some TV","functionWatchTV");
 	createNewLiOptions("go to bed","functionSleep");
+	}
 }
-
+function functionGetKeys() {
+	got_keys = true;
+	if (bedroom==true) {
+	functionGetUp();
+	} else if (bathroom==true) {
+	functionGoToTheBathroom();
+	} else if (livingroom==true) {
+	functionGoToTheLivingRoom();
+	}
+}
 
 function functionSleep() {
 	energy = false;
@@ -91,6 +122,8 @@ function functionSleep() {
 	late_for_work = false;
 	know_the_weather = false;
 	worked = false;
+	got_keys = false;
+	day++
 	if (irritated_boss==1 && troll==0) {
 		troll++
 	} else if (irritated_boss==2 && troll==1) {

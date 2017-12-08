@@ -1,11 +1,13 @@
 console.log("hallo");
+
+//const list//
 const title = document.getElementById('title');
 const pic = document.getElementById('pic');
 const story = document.getElementById('p-story');
 const options = document.getElementById('ul-options');
 const status = document.getElementById('ul-status');
 
-//boolean's
+//boolean's//
 var tired = true;
 var dirty = true;
 var late = true;
@@ -20,17 +22,33 @@ var clean_teeth = false;
 var late_for_work = false;
 var know_the_weather = false;
 var worked = false;
+var got_keys = false;
+var eaten = true;
+var played_games = false;
+var watched_TV = false;
 
-//numbers
+//room vars//
+var bedroom = false;
+var bathroom = false;
+var livingroom = false;
+
+//numbers//
 var relationship = 0;
 var irritated_boss = 0;
 var promoted = 0;
 var troll = 0;
-var time = 420;
+var job = 1;
+var day = 1;
 
-//start game functions
+
+//start game functions//
 function functionstart() {
+	if (eaten==true) {
+	eaten=false;
+	console.log("day "+day+" in bed");
 	pic.src = "img/clock7.png";
+	removeStatus(0);
+	removeStatus(0);
 	removeStatus(0);
 	removeStatus(0);
 	removeOptions();
@@ -38,6 +56,10 @@ function functionstart() {
 	createNewLiOptions("get up","functionGetUp");
 	createNewLiOptions("snooze","functionSnooze");
 	story.innerHTML = "you just woke-up from your sleep";
+	} else if (eaten==false) {
+		functionSnooze()
+		story.innerHTML="you overslept";
+	}
 }
 function functionhyped() {
 	functionstart();
@@ -45,8 +67,9 @@ function functionhyped() {
 	story.innerHTML = "you just woke-up from your sleep and you feel really excited";
 }
 
-//functions for at home in the morning
+//functions for at home in the morning//
 function functionSnooze() {
+	console.log("day "+day+" late and still in bed");
 	pic.src = "img/clock8.png";
 	late_for_work = true;
 	removeOptions();
@@ -55,10 +78,20 @@ function functionSnooze() {
 	story.innerHTML = "";
 }
 function functionGetUp() {
+	console.log("day "+day+" in the bedroom");
+	bedroom = true;
+	bathroom = false;
+	livingroom = false;
 	pic.src = "img/bedroom.png";
 	removeOptions();
 	if (dressed==false) {
 	createNewLiOptions("get dressed","functiondressed");
+	}
+	if (day==2 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
+	if (day==5 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
 	}
 	createNewLiOptions("go to the bathroom","functionGoToTheBathroom");
 	createNewLiOptions("go to the living room","functionGoToTheLivingRoom");
@@ -66,6 +99,10 @@ function functionGetUp() {
 	story.innerHTML = "";
 }
 function functionGoToTheBathroom() {
+	console.log("day "+day+" in the bathroom");
+	bedroom = false;
+	bathroom = true;
+	livingroom = false;
 	pic.src = "img/bathroom.png";
 	removeOptions();
 	if (clean==false || dirty==true) {
@@ -74,9 +111,19 @@ function functionGoToTheBathroom() {
 	createNewLiOptions("brush your teeth","functionBrushYourTeeth");
 	}
 	createNewLiOptions("go to the living room","functionGoToTheLivingRoom");
+	if (day==4 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
+	if (day==6 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
 	createNewLiOptions("go back to bed","functiongoBackToBed");
 }
 function functionGoToTheLivingRoom() {
+	console.log("day "+day+" in the Living Room");
+	bedroom = false;
+	bathroom = false;
+	livingroom = true;
 	pic.src = "img/livingroom.png";
 	removeOptions();
 	pic.setAttribute("style","width:62%;");
@@ -88,18 +135,47 @@ function functionGoToTheLivingRoom() {
 	}
 	createNewLiOptions("go to the bathroom","functionGoToTheBathroom");
 	createNewLiOptions("go back to bed","functiongoBackToBed");
-	createNewLiOptions("go to work","functionGoToWork");
+	if (day==1 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
+	if (day==3 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
+	if (day==7 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
+	if (dressed==true && energy==true) {
+		createNewLiOptions("go to work","functionGoToWork");
+	} else if (dressed==false) {
+
+	} else if (dirty==true && energy==false) {
+
+	}
+
 }
 
-//functions for at work
+//functions for at work//
 function functionGoToWork() {
+	console.log("day "+day+" at work");
+	if (job==1) {
 	pic.src = "img/office.png";
 	pic.setAttribute("style","width:90%;");
-	if (late_for_work==true) {
+	} else if (job==2) {
+	pic.src = "img/office2.png";
+	pic.setAttribute("style","width:90%;");
+	}
+	if (late_for_work==true && job==1) {
 		removeOptions();
 		title.innerHTML="fired";
 		story.innerHTML="your late on your first day of work so you got fired";
 		createNewLiOptions("search for a new job","functionGetANewJob");
+		createNewLiOptions("fuck work. go home and relax","functionFuckWork");
+		got_work = false;
+	} else if (late_for_work==true && job==2) {
+		removeOptions();
+		title.innerHTML="fired";
+		story.innerHTML="your late on your first day of work so you got fired again";
+		createNewLiOptions("search for a new job","functionGameOver");
 		createNewLiOptions("fuck work. go home and relax","functionFuckWork");
 		got_work = false;
 	} else if (irritated_boss<3 && troll<3){
@@ -114,6 +190,7 @@ function functionGoToWork() {
 		}
 		if (worked==true) {
 			createNewLiOptions("go home","functionGoHome");
+			story.innerHTML="your finnaly home after a long day at work";
 		}
 		if (irritated_boss==0  && troll==0) {
 		createNewLiOptions("start faffing around with your colleague's","functionFuckAroundAtWork");
@@ -129,23 +206,87 @@ function functionGoToWork() {
 		got_work=false;
 	}
 }
-//functions for after work at home
+//functions for at home after work//
 function functionGoHome() {
+	console.log("day "+day+" back at home");
+	if (got_keys==false) {
+		functionGameOver();
+	}
+	else if (got_keys==true) {
+	title.innerHTML="your at home";
 	pic.src = "img/home.png";
+	pic.setAttribute("style","width:95%;");
 	removeOptions();
 	late=true;
+	if (eaten==false) {
 	createNewLiOptions("make dinner","functionMakeDinner");
+	}
+	if (played_games==false) {
 	createNewLiOptions("play some games","functionPlayGame");
+	}
+	if (watched_TV==false) {
 	createNewLiOptions("watch some TV","functionWatchTV");
+	}
 	createNewLiOptions("go to bed","functionSleep");
+	}
 }
 
+function functionMakeDinner() {
+	eaten=true;
+	functionGoHome();
+}
+function functionPlayGames() {
+	played_games=true;
+	functionGoHome();
+}
+function functionWatchTV() {
+	watched_TV=true;
+	functionGoHome();
+}
+//once per day things/activities//
+function functionSleep() {
+	energy = false;
+	dressed = false;
+	clean = false;
+	nice_breath = false;
+	clean_teeth = false;
+	late_for_work = false;
+	know_the_weather = false;
+	played_games = false;
+	watched_TV = false;
+	worked = false;
+	got_keys = false;
+	day++
+	if (irritated_boss==1 && troll==0) {
+		troll++
+	} else if (irritated_boss==2 && troll==1) {
+		troll++
+	} else if (irritated_boss==3 && troll==2) {
+		troll++		
+	}
+	if (hyped==true) {
+		functionhyped();
+	} else {
+		functionstart();
+	}
 
-//once per day things/activities
+}
+function functionGetKeys() {
+	got_keys = true;
+	if (bedroom==true) {
+	functionGetUp();
+	} else if (bathroom==true) {
+	functionGoToTheBathroom();
+	} else if (livingroom==true) {
+	functionGoToTheLivingRoom();
+	}
+}
 function functionGetANewJob() {
 	if (hyped==true&&energy==true&&dressed==true&&clean==true&&nice_breath==true&&clean_teeth==true&&know_the_weather==true) {
 		got_work = true;
 		story.innerHTML = "you found a new job";
+		job++;
+		functionGoHome();
 		} else {
 		functionGameOver();
 	}
@@ -173,8 +314,8 @@ function functionTakeAShower() {
 	clean = true;
 	dirty = false;
 	createNewLiStatus("clean");
-	removeStatus(2);
-	removeStatus(2);
+	removeStatus(0);
+	removeStatus(0);
 	functionGoToTheBathroom();
 }
 function functionBrushYourTeeth() {
@@ -198,15 +339,17 @@ function functiongoBackToBed() {
 	functionSnooze();
 }
 
-//game over functions
+//game over functions//
 function functionGameOver() {
 	pic.src = "img/gameover.png";
 	removeOptions();
 	title.innerHTML = "GAME OVER";
 	if (got_work==false) {
-		story.innerHTML = "you got fired and failed to find a new job"
-	}else{
-	story.innerHTML = "you suck at life";
+		story.innerHTML = "you got fired and failed to find a new job on time";
+	} else if (got_keys==false) {
+		story.innerHTML = "you forgot your keys like a dumbass";
+	} else {
+		story.innerHTML = "you suck at life";
 	}
 }
 function functionForEverAlone() {
@@ -217,7 +360,7 @@ function functionFuckWork() {
 	title.innerHTML = "GAME OVER";
 	story.innerHTML = "your a lazy shit. maybe i should make a hobo game for ya. how to survive as a hobo";
 }
-//much needed functions
+//much needed functions//
 function removeStatus(number) {
 	status.removeChild(status.childNodes[number]);
 }

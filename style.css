@@ -12,6 +12,14 @@ footer {
 	background-color: black;
 	color: white;
 }
+footer>p {
+	margin-left: 10px;
+}
+footer>#options {
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 2px;
+}
 h1 {
 	margin: 5px 0px; 
 }
