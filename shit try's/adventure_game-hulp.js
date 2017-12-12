@@ -40,13 +40,11 @@ var day = 1;
 
 function functiondressed() {
 	dressed = true;
-	createNewLiStatus("dressed");
 	functionGetUp();
 }
 function functionTakeAShower() {
 	clean = true;
 	dirty = false;
-	createNewLiStatus("clean");
 	removeStatus(2);
 	removeStatus(2);
 	functionGoToTheBathroom();
@@ -54,18 +52,14 @@ function functionTakeAShower() {
 function functionBrushYourTeeth() {
 	nice_breath = true;
 	clean_teeth = true;
-	createNewLiStatus("nice breath");
-	createNewLiStatus("clean teeth");
 	functionGoToTheBathroom();
 }
 function functionEatBreakfast() {
 	energy = true;
-	createNewLiStatus("energy");
 	functionGoToTheLivingRoom();
 }
 function functionCheckTheWeather() {
 	know_the_weather = true;
-	createNewLiStatus("know the weather");
 	functionGoToTheLivingRoom();
 }
 function functiongoBackToBed() {
@@ -117,6 +111,7 @@ function functionSleep() {
 	energy = false;
 	dressed = false;
 	clean = false;
+	dirty = true;
 	nice_breath = false;
 	clean_teeth = false;
 	late_for_work = false;

@@ -41,19 +41,10 @@ footer ul li {
 #options ul{
 	list-style-type: decimal;
 }
-#status {
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
 #main-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas: "main story";
-}
-#bottom-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas: "options status"
 }
 h3 {
 	margin: 0;

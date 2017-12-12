@@ -47,10 +47,6 @@ function functionstart() {
 	eaten=false;
 	console.log("day "+day+" in bed");
 	pic.src = "img/clock7.png";
-	removeStatus(0);
-	removeStatus(0);
-	removeStatus(0);
-	removeStatus(0);
 	removeOptions();
 	late = false;
 	createNewLiOptions("get up","functionGetUp");
@@ -87,14 +83,11 @@ function functionGetUp() {
 	if (dressed==false) {
 	createNewLiOptions("get dressed","functiondressed");
 	}
-	if (day==2 && got_keys==false) {
-	createNewLiOptions("get your keys","functionGetKeys");
-	}
-	if (day==5 && got_keys==false) {
-	createNewLiOptions("get your keys","functionGetKeys");
-	}
 	createNewLiOptions("go to the bathroom","functionGoToTheBathroom");
 	createNewLiOptions("go to the living room","functionGoToTheLivingRoom");
+	if (day==2 && got_keys==false || day==5 && got_keys==false) {
+	createNewLiOptions("get your keys","functionGetKeys");
+	}
 	createNewLiOptions("go back to bed","functiongoBackToBed");
 	story.innerHTML = "";
 }
@@ -105,16 +98,13 @@ function functionGoToTheBathroom() {
 	livingroom = false;
 	pic.src = "img/bathroom.png";
 	removeOptions();
-	if (clean==false || dirty==true) {
+	if (clean==false && dirty==true) {
 	createNewLiOptions("take a shower","functionTakeAShower");
-	}if (nice_breath == false || clean_teeth == false) {
+	}if (nice_breath == false && clean_teeth == false) {
 	createNewLiOptions("brush your teeth","functionBrushYourTeeth");
 	}
 	createNewLiOptions("go to the living room","functionGoToTheLivingRoom");
-	if (day==4 && got_keys==false) {
-	createNewLiOptions("get your keys","functionGetKeys");
-	}
-	if (day==6 && got_keys==false) {
+	if (day==4 && got_keys==false || day==6 && got_keys==false) {
 	createNewLiOptions("get your keys","functionGetKeys");
 	}
 	createNewLiOptions("go back to bed","functiongoBackToBed");
@@ -135,43 +125,38 @@ function functionGoToTheLivingRoom() {
 	}
 	createNewLiOptions("go to the bathroom","functionGoToTheBathroom");
 	createNewLiOptions("go back to bed","functiongoBackToBed");
-	if (day==1 && got_keys==false) {
+	if (day==1 && got_keys==false || day==3 && got_keys==false || day==7 && got_keys==false) {
 	createNewLiOptions("get your keys","functionGetKeys");
 	}
-	if (day==3 && got_keys==false) {
-	createNewLiOptions("get your keys","functionGetKeys");
-	}
-	if (day==7 && got_keys==false) {
-	createNewLiOptions("get your keys","functionGetKeys");
-	}
-	if (dressed==true && energy==true) {
+	if (dressed==true && energy==true ) {
 		createNewLiOptions("go to work","functionGoToWork");
 	} else if (dressed==false) {
-
+		functionGameOver();
 	} else if (dirty==true && energy==false) {
-
+		functionGameOver();
 	}
+
 
 }
 
 //functions for at work//
 function functionGoToWork() {
 	console.log("day "+day+" at work");
-	if (job==1) {
+	if (job===1) {
 	pic.src = "img/office.png";
 	pic.setAttribute("style","width:90%;");
-	} else if (job==2) {
+	} else if (job===2) {
 	pic.src = "img/office2.png";
 	pic.setAttribute("style","width:90%;");
 	}
-	if (late_for_work==true && job==1) {
+	if (late_for_work==true && job===1) {
 		removeOptions();
 		title.innerHTML="fired";
 		story.innerHTML="your late on your first day of work so you got fired";
 		createNewLiOptions("search for a new job","functionGetANewJob");
 		createNewLiOptions("fuck work. go home and relax","functionFuckWork");
 		got_work = false;
-	} else if (late_for_work==true && job==2) {
+	} else if (late_for_work==true && job===2) {
 		removeOptions();
 		title.innerHTML="fired";
 		story.innerHTML="your late on your first day of work so you got fired again";
@@ -183,6 +168,7 @@ function functionGoToWork() {
 		title.innerHTML = "at work";
 		story.innerHTML = "you got to work on time";
 		if (worked==false) {
+
 		createNewLiOptions("work really hard","functionWork");
 		}
 		if (energy==false) {
@@ -192,14 +178,14 @@ function functionGoToWork() {
 			createNewLiOptions("go home","functionGoHome");
 			story.innerHTML="your finnaly home after a long day at work";
 		}
-		if (irritated_boss==0  && troll==0) {
+		if (irritated_boss===0 && troll===0) {
 		createNewLiOptions("start faffing around with your colleague's","functionFuckAroundAtWork");
-		} else if (irritated_boss==1 && troll==1) {
+		} else if (irritated_boss===1 && troll===1) {
 			createNewLiOptions("troll your colleague's","functionFuckAroundAtWork");
-		} else if (irritated_boss==2 && troll==2) {
+		} else if (irritated_boss===2 && troll===2) {
 			createNewLiOptions("download and play some games","functionFuckAroundAtWork");
 		}
-	} else if (irritated_boss==3 && troll==3) {
+	} else if (irritated_boss===3 && troll===3) {
 		removeOptions();
 		title.innerHTML="fired";
 		story.innerHTML="you pissed off your boss to much and got fired";
@@ -222,7 +208,7 @@ function functionGoHome() {
 	createNewLiOptions("make dinner","functionMakeDinner");
 	}
 	if (played_games==false) {
-	createNewLiOptions("play some games","functionPlayGame");
+	createNewLiOptions("play some games","functionPlayGames");
 	}
 	if (watched_TV==false) {
 	createNewLiOptions("watch some TV","functionWatchTV");
@@ -232,22 +218,29 @@ function functionGoHome() {
 }
 
 function functionMakeDinner() {
-	eaten=true;
+	eaten = true;
 	functionGoHome();
 }
 function functionPlayGames() {
-	played_games=true;
+	played_games = true;
 	functionGoHome();
 }
 function functionWatchTV() {
-	watched_TV=true;
+	watched_TV = true;
 	functionGoHome();
 }
+
+//weekend stuff
+
+
+
+
 //once per day things/activities//
 function functionSleep() {
 	energy = false;
 	dressed = false;
 	clean = false;
+	dirty = true;
 	nice_breath = false;
 	clean_teeth = false;
 	late_for_work = false;
@@ -282,10 +275,12 @@ function functionGetKeys() {
 	}
 }
 function functionGetANewJob() {
-	if (hyped==true&&energy==true&&dressed==true&&clean==true&&nice_breath==true&&clean_teeth==true&&know_the_weather==true) {
+	if (hyped == true && energy == true && dressed == true && clean == true && nice_breath == true && clean_teeth == true && know_the_weather == true) {
 		got_work = true;
 		story.innerHTML = "you found a new job";
 		job++;
+		irritated_boss=0;
+		troll=0;
 		functionGoHome();
 		} else {
 		functionGameOver();
@@ -307,32 +302,24 @@ function functionFuckAroundAtWork() {
 }
 function functiondressed() {
 	dressed = true;
-	createNewLiStatus("dressed");
 	functionGetUp();
 }
 function functionTakeAShower() {
 	clean = true;
 	dirty = false;
-	createNewLiStatus("clean");
-	removeStatus(0);
-	removeStatus(0);
 	functionGoToTheBathroom();
 }
 function functionBrushYourTeeth() {
 	nice_breath = true;
 	clean_teeth = true;
-	createNewLiStatus("nice breath");
-	createNewLiStatus("clean teeth");
 	functionGoToTheBathroom();
 }
 function functionEatBreakfast() {
 	energy = true;
-	createNewLiStatus("energy");
 	functionGoToTheLivingRoom();
 }
 function functionCheckTheWeather() {
 	know_the_weather = true;
-	createNewLiStatus("know the weather");
 	functionGoToTheLivingRoom();
 }
 function functiongoBackToBed() {
@@ -348,6 +335,10 @@ function functionGameOver() {
 		story.innerHTML = "you got fired and failed to find a new job on time";
 	} else if (got_keys==false) {
 		story.innerHTML = "you forgot your keys like a dumbass";
+	} else if (dressed==false) {
+		story.innerHTML = "you went to work naked";
+	} else if (dirty==true && energy==false) {
+		story.innerHTML = "you where so tired that you could not make it to your work on time and got fired";
 	} else {
 		story.innerHTML = "you suck at life";
 	}
