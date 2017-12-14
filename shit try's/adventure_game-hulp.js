@@ -127,3 +127,30 @@ function functionSleep() {
 		troll++		
 	}
 }
+
+function functionMeetKatie() {
+	removeOptions();
+	story.innerHTML = "you meet the lovely katie"
+	createNewLiOptions("ask her out","functionAskKatieOut")
+	createNewLiOptions("go back to work","functionWork");
+}
+function functionAskKatieOut() {
+	if (clean==true&&nice_breath==true&&clean_teeth==true&&energy==true&&know_the_weather==true) {
+		story.innerHTML="you impressed her and she wants to go out with you";
+		relationship++;
+	} else {
+		story.innerHTML="you did not impress her and failed to get a date with her";
+		createNewLiOptions("go back to work","functionWork");
+	}
+}
+function functionDateKatie() {
+	if (energy==true && dressed==true && clean==true && dirty==false && nice_breath==true && clean_teeth==true) {
+		story.innerHTML="you had a great date with katie and now the 2 of you are in a relationship";
+		title.innerHTML="good job";
+		functionWinkatie();
+	} else {
+		title.innerHTML="fail";
+		story.innerHTML='the date went "not so good"'
+		weekend();
+	}
+}

@@ -50,7 +50,7 @@ start screen
 3.
 
 *day 5 go to work on time but get late *storm*
-1.work 								*if done 5 days you get promoted*
+1.work
 2.take a break
 3.talk to the new female colleague 		*get a date if: clean, nice breath/clean teeth, energy and dry*
 
